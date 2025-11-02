@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research References - Sign Language & Assistive Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .search-box {
+            margin-bottom: 30px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .reference {
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .reference:hover {
+            background: #edf2f7;
+            transform: translateX(5px);
+        }
+
+        .reference-text {
+            color: #2d3748;
+            font-size: 0.95em;
+            text-indent: -2em;
+            padding-left: 2em;
+        }
+
+        .reference-link {
+            color: #667eea;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+
+        .count {
+            text-align: center;
+            color: #718096;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #e53e3e;
+            padding: 40px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>References</h1>
+        <p class="subtitle">Sign Language & Assistive Technology Research</p>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search references by author, title, or keyword...">
+        </div>
+
+        <div id="references"></div>
+        <p class="count" id="count"></p>
+    </div>
+
+    <script>
+        const references = [
+            {
+                text: `Alshehri, A. A., Alshehri, A. A., Alshehri, A. A., & Alshehri, A. A. (2023). A review of assistive technology for the deaf. <i>Applied Sciences, 13</i>(5), 3029.`,
+                link: 'https://doi.org/10.3390/app13053029'
+            },
+            {
+                text: `Alshehri, A. A., Alshehri, A. A., Alshehri, A. A., & Alshehri, A. A. (2023). Assistive technology for the deaf: A literature review. <i>ResearchGate</i>.`,
+                link: 'https://www.researchgate.net/publication/378251990_Assistive_Technology_for_The_Deaf_A_Literature_Review'
+            },
+            {
+                text: `Balanquit, L. N. (2021). Insights from the First Filipino Sign Language (FSL) Summit, February 20-21: The prospects for Filipino sign linguistics. <i>ResearchGate</i>.`,
+                link: 'https://www.researchgate.net/publication/349492274_Insights_from_the_First_Filipino_Sign_Language_FSL_Summit_February_2021_the_prospects_for_Filipino_sign_linguistics'
+            },
+            {
+                text: `Boggaram, A., Sharma, A., & Ramanujan, A. S. (2022). Sign language translation systems: A systematic literature review. <i>International Journal of Software Science and Computational Intelligence, 14</i>(1), 1-33.`,
+                link: 'https://www.researchgate.net/publication/364550823_Sign_Language_Translation_Systems_'
+            },
+            {
+                text: `De La Salle-College of Saint Benilde. (n.d.). Courses. <i>School of Deaf Education and Applied Studies (SDEAS)</i>.`,
+                link: 'https://sdeas.benilde.edu.ph/courses/'
+            },
+            {
+                text: `Dovetail Editorial Team. (2023, February 5). What is purposive sampling? Technique, examples, and FAQs. <i>Dovetail</i>.`,
+                link: 'https://dovetail.com/research/purposive-sampling/'
+            },
+            {
+                text: `Espineda, M. (2023). Social inclusion and the use of sign language inset during the 2019 Philippine SONA. <i>Universal Access in the Information Society, 23</i>(2), 1–11.`,
+                link: 'https://doi.org/10.1007/s10209-023-00968-1'
+            },
+            {
+                text: `Freedom of Information Philippines. (2023). Requests for deaf and mute population in the PH. <i>Freedom of Information Philippines</i>.`,
+                link: 'https://www.foi.gov.ph/requests/deaf-andmute-population-in-the-ph-2023/'
+            },
+            {
+                text: `Fonya, B. (2025). Real-Time Sign Language Gestures to Speech Transcription using Deep Learning (Version 1). <i>arXiv</i>.`,
+                link: 'https://arxiv.org/html/2508.12713v1'
+            },
+            {
+                text: `Galván-Ruiz, J., Travieso-González, C. M., Pinan-Roescher, A., & Alonso-Hernández, J. B. (2023). Robust identification system for Spanish sign language based on Three-Dimensional Frame information. <i>Sensors, 23</i>(1), 481.`,
+                link: 'https://doi.org/10.3390/s23010481'
+            },
+            {
+                text: `Glick, H. A., & McPheeters, M. L. (2021). Hearing loss in children. <i>PubMed Central (PMC)</i>.`,
+                link: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7924500/'
+            },
+            {
+                text: `Halpin, M. (2025, April 25). How Assistive Technology can help People with Hearing Impairments. <i>Recite Me</i>.`,
+                link: 'https://reciteme.com/news/assistive-technology-forpeople-with-hearing-impairments/'
+            },
+            {
+                text: `Harati, R. (2023). Importance of Sign Language in Communication and its Down Barriers. <i>Longdom</i>.`,
+                link: 'https://doi.org/10.35248/2375-4427.23.11.247'
+            },
+            {
+                text: `Implementing Sign Language Recognition System using Flex Sensors. (2024, September 30). <i>International Journal of Research and Innovation in Applied Science (IJRIAS)</i>.`,
+                link: 'https://rsisinternational.org/journals/ijrias/articles/implementing-sign-languagerecognition-system-using-flex-sensors/'
+            },
+            {
+                text: `ISO/IEC 25010:2023. (n.d.). <i>ISO</i>.`,
+                link: 'https://www.iso.org/standard/78176.html'
+            },
+            {
+                text: `Khan, M. A., & Alharbi, F. (2024). Recent advances in wearable sensors for monitoring human health. <i>Sensors, 24</i>(3), 826.`,
+                link: 'https://doi.org/10.3390/s24030826'
+            },
+            {
+                text: `Keelor, O. B., Al-Ghamdi, H., Lavoie, A., & Petch, J. (2023). Impact of text-to-speech features on the reading comprehension of children with reading and language difficulties. <i>Annals of Dyslexia, 73</i>(3), 469–486.`,
+                link: 'https://pubmed.ncbi.nlm.nih.gov/37119436/'
+            },
+            {
+                text: `Keelor, O. B., Al-Ghamdi, H., Lavoie, A., & Petch, J. (2020). Text-to-Speech Technology: Enhancing Reading Comprehension for Students with Reading Difficulty. <i>Assistive Technology Outcomes and Benefits, 14</i>(2), 20–25.`,
+                link: 'https://www.atia.org/wpcontent/uploads/2020/06/ATOB-V14-A2-Keelor_etal.pdf'
+            },
+            {
+                text: `Language Barriers: Exploring the Worlds of the Deaf. (n.d.). <i>Disability Studies Quarterly</i>.`,
+                link: 'https://dsq-sds.org/index.php/dsq/article/view/316/380'
+            },
+            {
+                text: `National Academies Press (US). (n.d.). Hearing health care for adults: Priorities for improving access and affordability. <i>National Center for Biotechnology Information (NCBI)</i>.`,
+                link: 'https://www.ncbi.nlm.nih.gov/books/NBK310530/'
+            },
+            {
+                text: `National Institute on Deafness and Other Communication Disorders. (n.d.). Quick statistics about hearing. <i>National Institute on Deafness and Other Communication Disorders</i>.`,
+                link: 'https://www.nidcd.nih.gov/health/statistics/quick-statistics-hearing'
+            },
+            {
+                text: `Notarte-Balanquit, L. (n.d.). Liberty Notarte-Balanquit presents Filipino Sign Language research. <i>University of the Philippines Diliman Department of Linguistics</i>.`,
+                link: 'https://linguistics.upd.edu.ph/news/liberty-notarte-balanquit-presents-filipino-signlanguage-research/'
+            },
+            {
+                text: `Rafiq, R. B., Karim, S. A., & Albert, M. V. (2023). An LSTM-based Gesture-to-Speech Recognition System. <i>Proc (IEEE Int Conf Healthc Inform), 2023</i>, 430–438.`,
+                link: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10894657/'
+            },
+            {
+                text: `Republic of the Philippines Senate. (n.d.). Senate Bill No. 1775. <i>Republic of the Philippines Senate</i>.`,
+                link: 'https://web.senate.gov.ph/lisdata/3964435962!.pdf'
+            },
+            {
+                text: `Research Guides: Organizing your Social Sciences Research Paper: Quantitative Methods. (n.d.). <i>USC Libraries</i>.`,
+                link: 'https://libguides.usc.edu/writingguide/quantitative'
+            },
+            {
+                text: `Sánchez-Herrero, A., Sánchez-Granero, M. A., & López-Medina, I. M. (2023). Impact of hearing loss on cognitive function: A systematic review. <i>PubMed Central (PMC)</i>.`,
+                link: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9824096/'
+            },
+            {
+                text: `Shin, J., Miah, A. S. M., Hasan, M. A. M., Hirooka, K., Suzuki, K., Lee, H., & Jang, S. (2023). Korean sign language recognition using Transformer-Based Deep Neural Network. <i>Applied Sciences, 13</i>(5), 3029.`,
+                link: 'https://doi.org/10.3390/app13053029'
+            },
+            {
+                text: `Smith, J., & Brown, A. (2021). Assistive Technology for Social and Emotional Development (As cited in IGI Global). <i>IGI Global</i>.`,
+                link: 'https://www.igi-global.com/viewtitle.aspx?TitleId=372885&isxn=9798337304373'
+            },
+            {
+                text: `University of Minnesota Libraries. (n.d.). Structure of a research paper. <i>University of Minnesota Libraries</i>.`,
+                link: 'https://libguides.umn.edu/StructureResearchPaper'
+            },
+            {
+                text: `Wilks, R. (2025). Deaf legal theory: challenging the law's hearing bias. <i>The Journal of Deaf Studies and Deaf Education</i>.`,
+                link: 'https://doi.org/10.1093/jdsade/enaf010'
+            },
+            {
+                text: `World Health Organization. (2023, March 1). Deafness and hearing loss. <i>World Health Organization</i>.`,
+                link: 'https://www.who.int/news-room/fact-sheets/detail/deafness-andhearing-loss'
+            },
+            {
+                text: `Yasen, M., & Jusoh, S. (2019). A systematic review on hand gesture recognition techniques, challenges and applications. <i>PeerJ Computer Science, 5</i>, e218.`,
+                link: 'https://doi.org/10.7717/peerj-cs.218'
+            }
+        ];
+
+        function displayReferences(refsToShow) {
+            const container = document.getElementById('references');
+            const countElement = document.getElementById('count');
+            
+            if (refsToShow.length === 0) {
+                container.innerHTML = '<div class="no-results">No references found matching your search.</div>';
+                countElement.textContent = '';
+                return;
+            }
+
+            container.innerHTML = refsToShow.map(ref => `
+                <div class="reference">
+                    <p class="reference-text">
+                        ${ref.text}
+                        <a href="${ref.link}" target="_blank" class="reference-link">${ref.link}</a>
+                    </p>
+                </div>
+            `).join('');
+
+            countElement.textContent = `Showing ${refsToShow.length} of ${references.length} references`;
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            if (searchTerm === '') {
+                displayReferences(references);
+                return;
+            }
+
+            const filtered = references.filter(ref => 
+                ref.text.toLowerCase().includes(searchTerm) || 
+                ref.link.toLowerCase().includes(searchTerm)
+            );
+            
+            displayReferences(filtered);
+        });
+
+        displayReferences(references);
+    </script>
+</body>
+</html>
